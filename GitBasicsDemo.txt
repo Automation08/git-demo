@@ -1,0 +1,26 @@
+1. Create a folder in local machine - for example - git-demo 
+2. open command prompt in that folder and run this command to initialize local git repository- git init 
+3. Go to GitHub -- https://github.com/
+4. Create a new repository in git hub web using same name as local for example here: git-demo
+5. Connect the local repository to Remote git repository using this command - git remote add origin https://github.com/Kalwantrao/git-demo.git
+6. Now run this command to set the master branch  for commits - git push --set-upstream origin master
+7. create one file for example - index.js
+8. Run the command to check the status of that file locally - git status
+9. Now add this file to local staging repository using this commands - git add index.js
+10. Commit this file locally using - git commit -m "First commit"
+11. Run this command to push the file to remote repository - git push
+12. Now go to GitHub web and check the code file, index.js file should appear in master branch. 
+
+13. Create a subbranch with master as source branch from GitHub web: it will create the exact copy of master branch  with other name as you provided- for example here - feature/demo-feature
+14. Go to local folder run this command to fetch the new branch locally -  git pull 
+15. Run this command to switch the working branch to new branch - git checkout feature/demo-feature
+16. Create a new file for example here: demo.txt
+17. Now follow the same steps to push the file to remote repository: git add,  git commit -m " ", and then git push
+18. Check the guthub web the new file demo.txt will be added on  feature/demo-feature only and not added on master.
+19. Now create a pull request and add the reviewers.
+20. Now merge this feature/demo-feature branch with master.
+21. Check the master branch should be updated with the new changes from the feature branch, the demo.txt file now appears on master branch  as well.
+
+Git hub credentials:
+UN Automation08
+PW QA@baroda123
