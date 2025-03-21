@@ -1,0 +1,165 @@
+{
+  "Students": [
+    {
+      "id": "2",
+      "name": "Dhaval",
+      "location": "USA",
+      "phone": 1789654236,
+      "courses": [
+        "Python",
+        "Selenium"
+      ]
+    },
+    {
+      "name": "Mahesh",
+      "lastname": "Meria",
+      "location": "USA",
+      "phone": 1987456324,
+      "courses": [
+        "Python",
+        "Intelij"
+      ],
+      "id": "3"
+    },
+    {
+      "id": "8990",
+      "name": "John",
+      "location": "Canada",
+      "phone": 1652398745,
+      "courses": [
+        "AI",
+        "Python"
+      ]
+    },
+    {
+      "id": "b547",
+      "name": "Jack",
+      "location": "UK",
+      "phone": 12356987,
+      "courses": [
+        "AI",
+        "Python"
+      ]
+    },
+    {
+      "id": "5ba6",
+      "name": "Paolo",
+      "location": "Switzerland",
+      "phone": 12356987,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "8f8f",
+      "name": "Paolo",
+      "location": "Switzerland",
+      "phone": 12356987,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "fa0f",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "789b",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "04d1",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "6c7e",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "768d",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "b651",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "d38d",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "9ebe",
+      "name": "Diego",
+      "location": "Switzerland",
+      "phone": 123569878,
+      "courses": [
+        "Java",
+        "Playwrite"
+      ]
+    },
+    {
+      "id": "f15a",
+      "courses": [
+        "Python",
+        "Selenium"
+      ],
+      "phone": "123456",
+      "name": "Dhaval",
+      "location": "USA"
+    },
+    {
+      "id": "c449",
+      "name": "Matuez",
+      "location": "Poland",
+      "phone": 4452369875,
+      "courses": [
+        "JMWE",
+        "JMCF"
+      ]
+    }
+  ]
+}
