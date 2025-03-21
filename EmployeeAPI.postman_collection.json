@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "f2ae1cc8-d67d-45dd-99ff-a89d909fc84f",
+		"name": "EmployeeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41779531",
+		"_collection_link": "https://www.postman.com/miteshqa08/workspace/practice-api-automation-01/collection/41779531-f2ae1cc8-d67d-45dd-99ff-a89d909fc84f?action=share&source=collection_link&creator=41779531"
+	},
+	"item": [
+		{
+			"name": "CreateEMP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"console.log(jsonData.data.name);\r",
+							"console.log(jsonData.data.age);\r",
+							"console.log(jsonData.data.id);\r",
+							"const empID = jsonData.data.id;\r",
+							"pm.environment.set(\"emp_id\",empID);\r",
+							"pm.test(\"Validate Status Code is 200\", () =>\r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate success message for newly added record\", () =>\r",
+							"{\r",
+							"\tpm.expect(jsonData.message).to.eql(\"Successfully! Record has been added.\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate name and age after create record\", function()\r",
+							"{\r",
+							"    pm.expect(jsonData.data.name).to.eql(\"John\");\r",
+							"    pm.expect(jsonData.data.age).to.eql(\"35\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"emp_name\", \"David Jestin\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee_name\":\"{{emp_name}}\",\r\n    \"employee_salary\":\"50000\",\r\n    \"employee_age\":\"65\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{emp_url}}/api/v1/create",
+					"host": [
+						"{{emp_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEMP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Validate status code is 200\", () =>\r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Success response message\", () =>\r",
+							"{\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successfully! Record has been fetched.\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate status text\", () =>\r",
+							"{\r",
+							"\tpm.expect(jsonData.status).to.eql(\"sucess\");\r",
+							"});\r",
+							"\r",
+							"/*pm.test(\"Validate employee name\", function()\r",
+							"{\r",
+							"    pm.expect(jsonData.data.name).to.eql(\"\")\r",
+							"}); */"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{emp_url}}/api/v1/employee/{{emp_id}}",
+					"host": [
+						"{{emp_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"{{emp_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEMP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const updateData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validate status code 200\", () =>\r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Success message in Response body\", () =>\r",
+							"{\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successfully! Record has been updated.\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Employee Name and it should be same as request payload\", () =>\r",
+							"{\r",
+							"\t\tpm.expect(updateData.data.employee_name).to.eql(pm.collectionVariables.get(\"emp_name\"));\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test\",\r\n    \"salary\":\"123\",\r\n    \"age\":\"23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{emp_url}}/api/v1/update/{{emp_id}}",
+					"host": [
+						"{{emp_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"{{emp_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEMP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const deleteResponse = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validate Record Deleted Successfully\", function()\r",
+							"{\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successfully! Record has been deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{emp_url}}/api/v1/delete/4107",
+					"host": [
+						"{{emp_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"4107"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "emp_name",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
